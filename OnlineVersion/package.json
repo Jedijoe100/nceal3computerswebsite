@@ -1,0 +1,31 @@
+{
+  "name": "House-of-Science-Robotics-8757",
+  "version": "0.1.0",
+  "description": "Website for online challenge",
+  "engines": {
+    "node": "8.9.1"
+  },
+  "main": "run.js",
+  "scripts": {
+    "start": "run.js"
+  },
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.17.0",
+    "fs": "^0.0.1-security"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jedijoe100/nceal3computerswebsite.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
