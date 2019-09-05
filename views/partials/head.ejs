@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+    <% for(i= 0, l = scripts[2].length; i < l; i++){%><link rel="stylesheet" type="text/css" href="/css/<%= scripts[2][i] %>">
+    <%}%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <% for(i= 0, l = scripts[0].length; i < l; i++){%><script src="/js/general/<%= scripts[0][i] %>"></script>
+    <%}%>
+</head>
+<body onload="LoadBackground(); genertateTopBackground(); generateContentBackground()" class="container-fluid">
+

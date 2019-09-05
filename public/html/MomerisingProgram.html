@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {
+    margin: 0;
+}
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body class="container-fluid">
+<form  onsubmit="return Process()" name="PhraseInput">
+	Phrase:<br>
+	<input type="text" name="phrase"><br>
+</form>
+<button onClick="Process()">Process</button>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h3 id="Text"></h3>
+<div>
+<form name="input" id="answers">
+
+</form>
+<button onClick="Process()">Process</button>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<script>
+/*Physics phrases to memorise
+var phrase0 = "Energy in capacitor is half supplied by the power supply as half gets stored in the capacitor and the rest gets converted to heat due to resistance";
+var phrase1 = "As the capacitor begins to charge the currect is at maximum at the start when the rate of flow of charge is at maximum. As more charge accumulates on the capacitors plates the voltage across the capacitor increases, opposing the source voltage. It becomes harder for electrons to accumulate on the plates so the current decreases.";
+var phrase2 = "In a DC curcuit with an inductor it takes a while before the current reaches the maximum. This happens as when the switch is switched on there is a change of current resulting in a changing flux. The changing flux creates an induced voltage across the inductor that opposes the source voltage and prevents the current from increasing rapidly.";
+var phrase3 = "When the switch opens the current in the first coil (primary) drops to zero very quickly. This causes a very rapid flux changing in the primary. This flux change passes through the second coil (secondary). The rapid flux change causes a large induced EMF in the secondary. Because of the turns ratio the secondary voltage is much greater than the primary voltage. This large secondary voltage is enough to cause a spark.";
+var phrase4 = "At resounance the reactance of the inductor is equal to the reactance of the capacitor and since they are of opposite phase they cancel each other out. Hence the impedance of the circuit is a minimum and is equal to the resistance of the resistor. Hence the size of the circuit current at resounance is a maximum as current is inversly proportional to impedance.";
+*/
+var phrase = document.forms["PhraseInput"]["phrase"].value;
+var phraseArray = phrase.split(" ");
+var wordsRemoved = [];
+var lengthl = 2;
+document.getElementById("Text").innerHTML = Remove(lengthl);
+
+function Remove(n){
+	var numRemove = new Array();
+	for(w = 0; w < n; w++){
+		numRemove[w] = Math.round(Math.random() * phraseArray.length);
+	}
+	var endSentence = "";
+	var number = 0;
+	for(i=0; i<phraseArray.length; i++){
+		var test = false;
+		for(q=0; q<numRemove.length; q++){
+			if(numRemove[q] == i){
+				test = true;
+				wordsRemoved[wordsRemoved.length] = phraseArray[i];
+				break;
+			}
+		}
+		if(test == false){
+			endSentence += phraseArray[i] + " ";
+		} else {
+			endSentence += "--- ";
+			document.getElementById("answers").innerHTML += "<input type='text' name='"+ number +"'><br>";
+			number += 1;
+		}
+	}
+	return endSentence;
+}
+function Process(){
+	phrase = document.forms["PhraseInput"]["phrase"].value;
+	phraseArray = phrase.split(" ");
+	var correct = false;
+	for(e = 0; e < wordsRemoved.length; e++){
+		for(r = 0; r < wordsRemoved.length; r++){
+			if(wordsRemoved[r] == document.forms["input"][e].value){
+				correct = true;
+			}
+		}
+		if(correct == false){
+		break;
+		} else if (e < wordsRemoved.length - 1){
+			correct=false;
+		}
+	}
+	if(correct){
+		lengthl += 1;
+		Reset(lengthl)
+	}
+}
+function Reset(m){
+	console.log(m);
+	wordsRemoved =[];
+	document.getElementById("answers").innerHTML = "";
+	document.getElementById("Text").innerHTML = Remove(m);
+}
+</script>
+</body>
+</html>
