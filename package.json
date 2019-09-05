@@ -1,13 +1,13 @@
 {
-  "name": "House-of-Science-Robotics-8757",
+  "name": "NCEA-L3-Computer-Assessment",
   "version": "0.1.0",
-  "description": "Website for online challenge",
+  "description": "Website for NCEA assessment",
   "engines": {
     "node": "8.9.1"
   },
-  "main": "run.js",
+  "main": "index.js",
   "scripts": {
-    "start": "run.js"
+    "start": "index.js"
   },
   "dependencies": {
     "ejs": "^2.6.1",
