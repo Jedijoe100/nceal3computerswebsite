@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body {
+    margin: 0;
+}
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body class="container-fluid">
+<form  onsubmit="return Process()" name="input">
+	Phrase(split with [):<br>
+	<input type="text" name="phrase"><br>
+</form>
+<button onClick="Process()">Process</button>
+<p id="output">
+
+</p>
+<script>
+function Process(){
+	document.getElementById("output").innerHTML = "";
+	var phrase = document.forms["input"]["phrase"].value;
+	var phraseProcessed = phrase.split("[");
+	phraseProcessed.sort();
+	for(i=0;i<phraseProcessed.length;i++){
+		document.getElementById("output").innerHTML += phraseProcessed[i] + "<br>";
+	}
+}
+</script>
+</body>
+</html>

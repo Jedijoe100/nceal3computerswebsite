@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+<br>
+<div id="" class="edge content">
+    <h1><%=title%></h1>
+    <p><%=content%></p>
+    <br>
+    <%for(i=0,l=articles.length;i<l;i++){%>
+    <%if(articles[i].ArticleType == "Article"){%>
+    <div class="jumbotron"><a href="/Articles?<%=articles[i].ProjectName%>"><h3><%= articles[i].ArticleTitle%></h3></a><p><%=articles[i].ArticleDescription.slice(0,articles[i].ArticleDescription.indexOf(" ",200))%><%if(articles[i].ArticleDescription.length>200){%><%="..."%><%}%></p></div>
+    <%}}%>
+</div>
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+<br>
+<div id="" class="edge content">
+    <h1><%=title%></h1>
+    <p><%=content%></p>
+    <br>
+    <%for(i=0,l=scripts[3].length;i<l;i++){%>
+        <%var n = 0;for(i1=0, l1 = articles.length;i1<l1;i1++){if(articles[i1].ProjectName == scripts[3][i].slice(0,scripts[3][i].lastIndexOf("."))){n=i1;}}%>
+        <div class="jumbotron rows"><div class="col-sm-8"><a href="/Images?<%=scripts[3][i].slice(0,scripts[3][i].lastIndexOf("."))%>"><h3><%= articles[n].ArticleTitle%></h3></a><p><%=articles[n].ArticleDescription.slice(0,articles[n].ArticleDescription.indexOf(" ",200))%><%if(articles[n].ArticleDescription.length>200){%><%="..."%><%}%></p></div><div class="col-sm-4"><img src="/img/Main/<%=scripts[3][i].slice(0,scripts[3][i].lastIndexOf("."))%>.png" class="img-thumbnail icon" alt="no image found for script"></div></div>
+    <%}%>
+</div>
+<% include ../partials/footer.ejs %>

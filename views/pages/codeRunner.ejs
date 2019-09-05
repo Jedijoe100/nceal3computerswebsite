@@ -1,0 +1,4 @@
+<% include ../partials/head.ejs %>
+<% let scriptUrl = url1.slice(url1.lastIndexOf("?")+1);%>
+<script src="/js/programs/<%= scriptUrl %>.js" onLoad="startGame()"></script>
+<% include ../partials/foot.ejs %>

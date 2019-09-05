@@ -1,0 +1,42 @@
+<% include ../partials/head.ejs %>
+<div class="row">
+    <div class="col-sm-3 bar">
+            <ul class="list-group">
+                <%for(c=1,l=scripts.length;c<l;c++){%>
+                    <%for(i=0,l1=scripts[c].length;i<l1;i++){%>
+                        <%if(c == 2){}else{%>
+                        <%let pageName = scripts[c][i].slice(0,scripts[c][i].lastIndexOf("."));%>
+                        <li class="nav-item">
+                            <a class="dropdown-item" href="/?<%=pageName%>"><%=pageName%></a>
+                        </li>
+                    <%}}%>
+                <%}%>
+                <%for(c=0,l=articles.length;c<l;c++){%>
+                    <%if(articles[c].ArticleType == "Article"){%>
+                    <%let pageName = articles[c].ProjectName;%>
+                    <li class="nav-item">
+                        <a class="dropdown-item" href="/?<%=pageName%>"><%=pageName%></a>
+                    </li>
+                <%}}%>
+            </ul>
+    </div>
+    <div class="col-sm-9" id="content">
+        <form action="/post" method="post" novalidate>
+            <h3>Article Code</h3>
+            <input type="text" width="200px" name="code" value="<%=current.PageID%>">
+            <h3>Title</h3>
+            <input type="text" width="200px" name="title" value="<%=current.ArticleTitle%>">
+            <h3>Project Name</h3>
+            <input type="text" width="200px" name="name" value="<%=PN%>">
+            <h3>Article Type</h3>
+            <input type="text" width="200px" name="type" value="<%=current.ArticleType%>">
+            <h3>Content</h3>
+            <textarea name="description" rows="20" cols="100">
+                <%=current.ArticleDescription%>
+            </textarea>
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</div>
+
+<% include ../partials/foot.ejs %>

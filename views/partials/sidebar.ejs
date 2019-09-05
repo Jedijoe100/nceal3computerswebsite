@@ -1,0 +1,55 @@
+<div class="col-sm-3" id="sidebar">
+    <ul class="list-group" >
+        <li class="list-group-item d-flex justify-content-between align-items-center" data-toggle="collapse" href="#menu1">
+            Scripts
+            <span class="badge badge-primary badge-pill"><%= scripts[1].length %></span>
+            <div class="collapse" id="menu1">
+                <%for(i=0,l=scripts[1].length;i<l;i++){%>
+                <%var pageName = scripts[1][i].slice(0,scripts[1][i].lastIndexOf("."))%>
+                <a class="dropdown-item" href="/Scripts?<%=pageName%>"><%=pageName%></a>
+                <%}%>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center" data-toggle="collapse" href="#menu2">
+            Articles
+            <span class="badge badge-primary badge-pill"><%= articleNum %></span>
+            <div class="collapse" id="menu2">
+                <%for(i=0,l1=articles.length;i<l1;i++){%>
+                    <%if(articles[i].ArticleType == "Article"){%>
+                    <a class="dropdown-item" href="/Articles?<%=articles[i].ProjectName%>"><%=articles[i].ArticleTitle%></a>
+                <%}}%>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center" data-toggle="collapse" href="#menu3">
+            Images
+            <span class="badge badge-primary badge-pill"><%= scripts[3].length %></span>
+            <div class="collapse" id="menu3">
+                <%for(i=0,l=scripts[3].length;i<l;i++){%>
+                    <%var pageName = scripts[3][i].slice(0,scripts[3][i].lastIndexOf("."))%>
+                    <a class="dropdown-item" href="/Images?<%=pageName%>"><%=pageName%></a>
+                <%}%>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center" data-toggle="collapse" href="#menu4">
+            Compositions
+            <span class="badge badge-primary badge-pill"><%= scripts[4].length %></span>
+            <div class="collapse" id="menu4">
+                <%for(i=0,l=scripts[4].length;i<l;i++){%>
+                    <%var pageName = scripts[4][i].slice(0,scripts[4][i].lastIndexOf("."))%>
+                    <a class="dropdown-item" href="/Compositions?<%=pageName%>"><%=pageName%></a>
+                <%}%>
+            </div>
+        </li>
+        <li class="list-group-item d-flex justify-content-between align-items-center" data-toggle="collapse" href="#menu5">
+            Website
+            <span class="badge badge-primary badge-pill"><%= scripts[5].length %></span>
+            <div class="collapse" id="menu5">
+                <%for(i=0,l=scripts[5].length;i<l;i++){%>
+                    <%var pageName = scripts[5][i].slice(0,scripts[5][i].lastIndexOf("."))%>
+                    <a class="dropdown-item" href="/Websites?<%=pageName%>"><%=pageName%></a>
+                <%}%>
+            </div>
+        </li>
+    </ul>
+    <br>
+</div>

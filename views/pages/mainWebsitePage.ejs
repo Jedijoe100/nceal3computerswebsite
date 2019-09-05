@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+<br>
+<div id="" class="edge content">
+    <h1><%=title%></h1>
+    <p><%=content%></p>
+    <br>
+    <%for(i=0,l=scripts[5].length;i<l;i++){%>
+        <%let n = 0;for(i1=0, l1 = articles.length;i1<l1;i1++){if(articles[i1].ProjectName == scripts[5][i].slice(0,scripts[5][i].lastIndexOf("."))){n=i1;}}%>
+        <div class="jumbotron"><a href="/Websites?<%=scripts[5][i].slice(0,scripts[5][i].lastIndexOf("."))%>"><h3><%= articles[n].ArticleTitle%></h3></a><p><%=articles[n].ArticleDescription.slice(0,articles[n].ArticleDescription.indexOf(" ",200))%><%if(articles[n].ArticleDescription.length>200){%><%="..."%><%}%></p></div>
+<%}%>
+</div>
+<% include ../partials/footer.ejs %>
